@@ -1,13 +1,10 @@
 //Imports
 const express = require('express');
+const VGLogController = require('./controllers/vglog')
 
 //Configurations
 const app = express();
-
-//Routes
-app.get('/', (req, res) =>{
-    res.send('You are on the home route')
-})
+app.use(VGLogController);
 
 //Ports
 app.listen(4000, () => console.log('Spinning on port: 4000'))
