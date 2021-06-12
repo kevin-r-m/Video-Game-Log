@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Ratchet & Clank: A Rift Apart", 
+        "description": "Ratchet & Clank: Rift Apart is a 2021 third-person shooter platform game developed by Insomniac Games and published by Sony Interactive Entertainment for the PlayStation 5. The story of the game follows the titular characters as they traverse across different worlds in multiple realities to stop their archenemy, Doctor Nefarious, from exploiting a sudden catastrophic dimensional collapse, to finally achieve his dream of completely exterminating organic life in the universe.", 
+        "rating": "E", 
+        "img": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2921/DwVjpbKOsFOyPdNzmSTSWuxG.png"
+    }, 
+    {
+        "title": "The Last of Us Part 2", 
+        "description": "The Last of Us Part II is a 2020 action-adventure game developed by Naughty Dog and published by Sony Interactive Entertainment for the PlayStation 4. Set five years after The Last of Us (2013), the game focuses on two playable characters in a post-apocalyptic United States whose lives tragically intertwine.", 
+        "rating": "M", 
+        "img": "https://image.api.playstation.com/vulcan/img/rnd/202010/2618/w48z6bzefZPrRcJHc7L8SO66.png"
+    }
+]
