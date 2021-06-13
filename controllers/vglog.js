@@ -11,7 +11,7 @@ const Review = require('../models/review')
 router.get('/', (req, res) =>{
     Game.find({})
         .then( games => {
-            res.json(games)
+            res.render('home',  {games})
         })
 })
 
