@@ -10,7 +10,7 @@ const ReviewSchema = mongoose.Schema (
             type: String, 
             required: true
         }, 
-        Score: {
+        score: {
             type: Number, 
             required: true
         },
@@ -22,4 +22,4 @@ const ReviewSchema = mongoose.Schema (
     {timestamps: true}
 )
 
-module.exports = mongoose.model('Review', ReviewSchema)
+module.exports = mongoose.model('review', ReviewSchema)
