@@ -1,0 +1,9 @@
+<h1><%= game.title %></h1>
+
+<h2>Reviews</h2>
+
+<ul>
+    <% for (let i = 0; i < game.reviews.length; i++){ %>
+        <li><%= game.reviews[i].title %></li>
+    <% }  %>
+</ul>
