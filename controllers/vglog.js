@@ -19,8 +19,10 @@ router.get('/', (req, res) =>{
 router.get('/:id', (req, res) =>{
     Game.findById(req.params.id)
     .populate('reviews')
-        .then(game => {
-            res.json(game)
+    .then(game => {
+            console.log(game.reviews[0].title)
+            res.render('index', {game})
+            // res.json(game.reviews)
         })
 })
 
