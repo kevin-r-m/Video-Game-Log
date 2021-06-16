@@ -14,6 +14,10 @@ const ReviewSchema = mongoose.Schema (
             type: Number, 
             required: true
         },
+        reviewer: {
+            type: String, 
+            required: true
+        },
         game: {
             type: mongoose.Schema.Types.ObjectId, 
             ref: 'game'
