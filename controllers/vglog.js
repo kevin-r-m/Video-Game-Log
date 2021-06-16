@@ -16,13 +16,12 @@ router.get('/', (req, res) =>{
 })
 
 //Game Detail Route
+//Currently rendering game and reviews
 router.get('/:id', (req, res) =>{
     Game.findById(req.params.id)
     .populate('reviews')
     .then(game => {
-            console.log(game.reviews[0].title)
             res.render('index', {game})
-            // res.json(game.reviews)
         })
 })
 
@@ -41,6 +40,25 @@ router.put('/:id', (req, res) => {
     Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
         .then(game => res.json(game))
 
+})
+
+//new game
+router.post('/', (req, res) =>{
+    console.log(req.body);
+    Game.create(req.body)
+        .then(game => {
+            res.redirect('/')
+        })
+})
+
+//delete review
+
+//delete game and reviews
+router.delete('/:id', (req, res) =>{
+    const routeID = req.params.id
+    Review.remove({game: routeID})
+    Game.findByIdAndDelete(routeID)
+        .then(res.redirect('/'))
 })
 
 //Exports
