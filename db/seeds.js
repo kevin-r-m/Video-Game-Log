@@ -1,6 +1,8 @@
-const seedData = require('./games-seeds.json')
+const gameData = require('./games-seeds.json')
+const reviewData = require('./review-seeds.json')
 const Game = require('../models/vg.js')
 const Review = require('../models/review.js')
+const review = require('../models/review.js')
 
 // Review.deleteMany({})
 //   .then(() => {
@@ -25,20 +27,17 @@ const Review = require('../models/review.js')
         Review.deleteMany({})
     })
     .then(() =>{
-        return Review.create(
-          {
-            title: "Wow, what a game",
-            body: "It is a good game, I would recommend it to anyone who can get a PS5",
-            score: "10"
-          }
-        )
+        return Review.create(reviewData)
     })
     .then((review) => {
-        return seedData.map((game) => {
+        return gameData.map((game) => {
             return ({...game, reviews: review._id})
         })
     })
     .then((games) => Game.insertMany(games))
+    .then(games => {
+      return Review.findOneAndUpdate({title: "Wow, what a game"}, {$set: {game: games[0]._id}})
+    })
     .then(console.log)
     .catch(console.error)
     .finally(() =>{
