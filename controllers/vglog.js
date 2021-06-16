@@ -15,6 +15,20 @@ router.get('/', (req, res) =>{
         })
 })
 
+//new game
+router.get('/new', (req, res) =>{
+    res.render('new')
+})
+
+//create route
+router.post('/', (req, res) =>{
+    console.log(req.body);
+    Game.create(req.body)
+        .then(game => {
+            res.redirect('/games')
+        })
+})
+
 //Game Detail Route
 //Currently rendering game and reviews
 router.get('/:id', (req, res) =>{
@@ -42,14 +56,8 @@ router.put('/:id', (req, res) => {
 
 })
 
-//new game
-router.post('/', (req, res) =>{
-    console.log(req.body);
-    Game.create(req.body)
-        .then(game => {
-            res.redirect('/')
-        })
-})
+
+
 
 //delete review
 

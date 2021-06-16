@@ -1,7 +1,8 @@
 <h1>Video Game Log</h1>
+<a href="/games/new">Add a new game</a>
 <ul>
     <% games.forEach(game => { %>
-        <li> <%= game.title %> </li>
-        <img src="<%= game.img%>" alt="<%= game.title %>" style: width=100%>
+        <li> <%= game.title %> 
+        <img src="<%= game.img%>" alt="<%= game.title %>" style: width=100%></li>
     <% }) %>
 </ul>
