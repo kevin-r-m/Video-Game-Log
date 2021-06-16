@@ -1,6 +1,7 @@
 //Imports
 const express = require('express');
 const app = express();
+const methodOverride = require('method-override');
 const VGLogController = require('./controllers/vglog')
 const ejsLayouts = require('express-ejs-layouts')
 
@@ -9,6 +10,7 @@ const ejsLayouts = require('express-ejs-layouts')
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/games', VGLogController);
+app.use(methodOverride('_method'));
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
