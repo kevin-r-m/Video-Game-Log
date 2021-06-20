@@ -1,8 +1,9 @@
-<h1>Video Game Log</h1>
-<a href="/games/new">Add a new game</a>
+<h1 class="title">Video Game Log</h1>
+<a href="/games/new" class = 'button' id = 'newGame'>Add a new game</a>
 <ul>
     <% games.forEach(game => { %>
         <li> <%= game.title %> 
         <img src="<%= game.img%>" alt="<%= game.title %>" style: width=100%></li>
+        <a href="/games/<%= game._id %>">More</a>
     <% }) %>
 </ul>

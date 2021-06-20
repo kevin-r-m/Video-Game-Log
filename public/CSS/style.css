@@ -1,0 +1,50 @@
+body {
+    background-color: #80F5FF;
+    font-family: 'Roboto', sans-serif;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: row;
+}
+
+.reviewList {
+    list-style: none;
+}
+
+.review {
+    border: 2px black solid;
+    margin: 10px;
+    padding: 5px;
+}
+
+.button {
+    text-decoration: none;
+    background-color: #7AF1B7;
+    padding: 5px;
+    border: 2px solid #67d19e;
+    border-radius: 25px;
+    color: black;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #68d19e;
+    border: 2px solid #57b386;
+}
+
+.title {
+    text-align: center;
+}
+
+#newGame {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+}
+
+.rTitle {
+    background-color: #7AF1B7;
+    width: 100%;
+    text-align: center;
+}

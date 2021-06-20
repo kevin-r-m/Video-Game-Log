@@ -1,10 +1,27 @@
-<h1><%= game.title %></h1>
+
+<h1 class = 'title'><%= game.title %></h1>
+
+<a href="/games" class = 'button'>Go Back</a>
+
+<a href="/games/<%=game._id %>/edit" class = 'button'>Edit Game</a>
+
+<a href="/games/<%=game._id %>/review" class = 'button'>Leave a new review</a>
+
+<br>
+
+<img src="<%= game.img%>" alt="<%= game.title %>" style: width=100%></li>
 
 <h2>Reviews</h2>
 
-<ul>
-    <% for (let i = 0; i < game.reviews.length; i++){ %>
-        <li><%= game.reviews[i].title %></li>
-        <li><%= game.reviews[i].body%></li>
-    <% }  %>
-</ul>
+<div class = 'reviews'>
+    <ul class = 'reviewList'>
+        <% for (let i = 0; i < game.reviews.length; i++){ %>
+            <li class = 'review'>
+                <div class = 'rTitle'><%= game.reviews[i].title %></div>
+                <div class = 'rScore'> Score: <%= game.reviews[i].score%></div>
+                <div class = 'rBody'><%= game.reviews[i].body%></div>
+                <div class = 'reviewer'> Reviewed by: <%= game.reviews[i].reviewer %> </div>
+            </li>
+        <% }  %>
+    </ul>
+</div>
