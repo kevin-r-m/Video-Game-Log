@@ -5,9 +5,12 @@ const router = express.Router();
 const Game = require('../models/vg')
 const Review = require('../models/review')
 
+const ejsLayouts = require('express-ejs-layouts')
+router.use(ejsLayouts)
+
 //ROUTES
 
-//Show All Games
+//Show Route
 router.get('/', (req, res) =>{
     Game.find({})
         .then( games => {
@@ -15,12 +18,12 @@ router.get('/', (req, res) =>{
         })
 })
 
-//new game
+//New Route
 router.get('/new', (req, res) =>{
     res.render('new')
 })
 
-//create route
+//Create game route
 router.post('/', (req, res) =>{
     console.log(req.body);
     Game.create(req.body)
@@ -29,8 +32,25 @@ router.post('/', (req, res) =>{
         })
 })
 
-//Game Detail Route
-//Currently rendering game and reviews
+//New review route
+router.get('/:id/review', (req, res) =>{
+    const routeId = req.params.id
+    res.render('review', {routeId})
+})
+
+//Create review route
+router.post('/:id', (req, res) => {
+    Review.create(req.body)
+        .then((review) =>{
+              return Game.findByIdAndUpdate(req.params.id, {$push: {reviews: review._id}})
+        })
+        .then((game) => {
+            return Review.findOneAndUpdate({title: req.body.title}, {$set: {game: game._id}})
+        })
+        .then(res.redirect(`/games`))
+})
+
+//Index Route
 router.get('/:id', (req, res) =>{
     Game.findById(req.params.id)
     .populate('reviews')
@@ -39,27 +59,21 @@ router.get('/:id', (req, res) =>{
         })
 })
 
-//Edit Route
+//Game Edit Route
 router.get('/:id/edit', (req, res) =>{
     Game.findById(req.params.id)
         .then(game => {
-            res.json(game)
+            res.render('edit', {game})
         })
 })
 
-//Update Route
-//Updating single game record for testing
+//Game Update Route
 router.put('/:id', (req, res) => {
     console.log(req.body)
     Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
-        .then(game => res.json(game))
-
+        .then(game => res.render('index', game))
+        .catch(console.log)
 })
-
-
-
-
-//delete review
 
 //delete game and reviews
 router.delete('/:id', (req, res) =>{
