@@ -1,9 +1,17 @@
 <h1 class="title">Video Game Log</h1>
 <a href="/games/new" class = 'button' id = 'newGame'>Add a new game</a>
-<ul>
+<h3> Number of games: <%=  games.length %> </h3>
+<div class = 'gameContainer'>
     <% games.forEach(game => { %>
-        <li> <%= game.title %> 
-        <img src="<%= game.img%>" alt="<%= game.title %>" style: width=100%></li>
-        <a href="/games/<%= game._id %>">More</a>
+        <div class = 'gamePrev'>
+            <div class="flexContainer">
+                <p class = 'titleThumb'> <%= game.title %> </p>
+            </div>
+            <div class="flexContainer">
+                <img src="<%= game.img%>" alt="<%= game.title %>" id = 'imgHome'>
+            </div>
+            <p> Number of reviews: <%= game.reviews.length %></p>
+            <a href="/games/<%= game._id %>">More</a>
+        </div>
     <% }) %>
-</ul>
+</div>
