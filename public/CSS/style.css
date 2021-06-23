@@ -6,10 +6,14 @@ body {
 .reviews {
     display: flex;
     flex-direction: row;
+    justify-self: center;
+    justify-content: center;
+    
 }
 
 .reviewList {
     list-style: none;
+    
 }
 
 .review {
@@ -33,8 +37,29 @@ body {
     border: 2px solid #57b386;
 }
 
+.warnBtn {
+    text-decoration: none;
+    background-color: #e79292;
+    padding: 5px;
+    border: 2px solid #e67d7d;
+    border-radius: 25px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.warnBtn:hover {
+    background-color: #ca7272;
+    border: 2px solid #c75555;
+}
+
 .title {
     text-align: center;
+    display: block;
+    background-color: #7AF1B7;
+    padding: 5px;
+    border: 2px solid #67d19e;
+    
 }
 
 #newGame {
@@ -47,4 +72,105 @@ body {
     background-color: #7AF1B7;
     width: 100%;
     text-align: center;
+    font-weight: 900;
+}
+
+.gameInfo {
+    display: grid;
+    grid-template-columns: (1fr, 1fr, .5fr);
+    grid-template-rows: repeat(1fr, 1fr, 1fr);
+    background-color: #74dfe9;
+    padding: 10px;
+}
+
+#editGame {
+    display: grid;
+    grid-column: 3;
+    grid-row: 2;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+#removeBtn {
+    display: grid;
+    grid-column: 3;
+    grid-row: 1;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+#reviewGame {
+    display: grid;
+    grid-column: 3;
+    grid-row: 3;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+}
+
+#gameDescrip {
+    display: grid;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    padding: 10px;
+}
+
+#gameImg {
+    display: grid;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.dim {
+    opacity: 75%;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.gameContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: fit-content;
+}
+
+.gamePrev {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    justify-content: center;
+}
+
+#imgHome {
+    width: 35%;
+    border: 2px solid black;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.titleThumb {
+    background-color: #7AF1B7;
+    width: fit-content;
+    padding: 5px;
+    border: 2px solid #67d19e;
 }
