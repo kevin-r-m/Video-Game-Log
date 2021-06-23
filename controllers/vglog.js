@@ -13,6 +13,7 @@ router.use(ejsLayouts)
 //Show Route
 router.get('/', (req, res) =>{
     Game.find({})
+    .populate('reviews')
         .then( games => {
             res.render('home',  {games})
         })
@@ -50,29 +51,31 @@ router.post('/:id', (req, res) => {
         .then(res.redirect(`/games`))
 })
 
-//Index Route
-router.get('/:id', (req, res) =>{
+//Game Edit Route
+router.get('/edit/:id', (req, res) =>{
     Game.findById(req.params.id)
     .populate('reviews')
-    .then(game => {
-            res.render('index', {game})
-        })
-})
-
-//Game Edit Route
-router.get('/:id/edit', (req, res) =>{
-    Game.findById(req.params.id)
         .then(game => {
             res.render('edit', {game})
         })
 })
 
 //Game Update Route
-router.put('/:id', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     console.log(req.body)
     Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
-        .then(game => res.render('index', game))
+    .populate('reviews')
+        .then(game => res.render('index', {game:game}))
         .catch(console.log)
+})
+
+//Index Route
+router.get('/:id', (req, res) =>{
+    Game.findById(req.params.id)
+    .populate('reviews')
+    .then(game => {
+        res.render('index', {game})
+        })
 })
 
 //delete game and reviews
