@@ -8,12 +8,12 @@
 
 
 <div class = 'gameInfo'>
-    <form action="/<%= game._id %>?_method=DELETE" method="POST">
+    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
         <input type="submit" value="Remove" id="removeBtn" class = 'warnBtn'>
       </form>
     <a href="/games/edit/<%=game._id %>" class = 'button' id="editGame">Edit Game</a>
     <a href="/games/<%=game._id %>/review" class = 'button' id="reviewGame">Leave a new review</a>
-    <img src="<%= game.img%>" alt="<%= game.title %>" style: width=100% id="gameImg">
+    <img src="<%= game.img%>" alt="<%= game.title %>" id="gameImg">
     <p id="gameDescrip"> <span>About: </span><%= game.description %> <br> <span>ESRB Rating: <%= game.rating %></span> </p>
 </div>
 

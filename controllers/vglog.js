@@ -81,9 +81,10 @@ router.get('/:id', (req, res) =>{
 //delete game and reviews
 router.delete('/:id', (req, res) =>{
     const routeID = req.params.id
+    console.log('hit the log')
     Review.remove({game: routeID})
     Game.findByIdAndDelete(routeID)
-        .then(res.redirect('/'))
+        .then(res.redirect('/games'))
 })
 
 //Exports
