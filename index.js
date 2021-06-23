@@ -7,10 +7,11 @@ const methodOverride = require('method-override');
 //Configurations
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/games', VGLogController);
 app.set('view engine', 'ejs')
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + "/public"))
+app.use('/games', VGLogController);
+app.set("port", process.env.PORT || 4000)
 
 //Ports
-app.listen(4000, () => console.log('Spinning on port: 4000'))
+app.listen(app.get('port'), () => console.log(`Spinning on port: ${app.get('port')}`))
