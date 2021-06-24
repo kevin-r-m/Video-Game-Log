@@ -8,7 +8,7 @@
 
 
 <div class = 'gameInfo'>
-    <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+    <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
         <input type="submit" value="Remove" id="removeBtn" class = 'warnBtn'>
       </form>
     <a href="/games/edit/<%=game._id %>" class = 'button' id="editGame">Edit Game</a>
