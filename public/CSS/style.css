@@ -211,4 +211,22 @@ input {
     .reviewList {
         margin-left: -10%;
     }
+    .gameContainer {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: center;
+    }
+    .gamePrev {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 75%;
+        justify-content: center;
+    }
+    #imgHome {
+        width: 45%;
+        border: 2px solid black;
+    }
 }
