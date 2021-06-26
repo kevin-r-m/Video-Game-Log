@@ -48,7 +48,7 @@ router.post('/:id', (req, res) => {
         .then((game) => {
             return Review.findOneAndUpdate({title: req.body.title}, {$set: {game: game._id}})
         })
-        .then(res.redirect(`/games`))
+        .then(res.redirect(`/games/${req.params.id}`))
 })
 
 //Game Edit Route
