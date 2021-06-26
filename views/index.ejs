@@ -10,9 +10,10 @@
 
 
 <div class = 'gameInfo'>
-    <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
+    <button id='removeBtn' class = 'warnBtn'>Remove</button>
+    <!-- <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
         <input type="submit" value="Remove" id="removeBtn" class = 'warnBtn'>
-      </form>
+      </form> -->
     <a href="/games/edit/<%=game._id %>" class = 'button' id="editGame">Edit Game</a>
     <a href="/games/<%=game._id %>/review" class = 'button' id="reviewGame">Leave a new review</a>
     <img src="<%= game.img%>" alt="<%= game.title %>" id="gameImg">
@@ -33,3 +34,15 @@
         <% }  %>
     </ul>
 </div>
+
+<div id="myModal" class="modal">
+
+    <div class="modal-content">
+        <p>Are you sure you want remove <%= game.title %>? This action cannot be undone.</p>
+        <button class="button" id="close">No, I am not sure</button>
+        <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
+            <input type="submit" value="Yes, I am sure" id="removeBtn" class = 'warnBtn'>
+          </form>
+    </div>
+  
+  </div>

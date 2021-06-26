@@ -1,8 +1,8 @@
-<h1>You hit the review route</h1>
+<h1>Please enter in the fields below for your review</h1>
 
 <form action="/games/<%= routeId %>" method='POST'>
     <label for="title">Title:</label>
-    <input type="text" name='title'>
+    <input type="text" name='title' required>
 
     <label for="body">Leave your review here:</label>
     <input type="text" name="body" required>
