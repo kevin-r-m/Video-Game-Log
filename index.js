@@ -13,5 +13,9 @@ app.use(express.static(__dirname + "/public"))
 app.use('/games', VGLogController);
 app.set("port", process.env.PORT || 4000)
 
+app.get('/', (req, res) => {
+    res.redirect('/games')
+})
+
 //Ports
 app.listen(app.get('port'), () => console.log(`Spinning on port: ${app.get('port')}`))
