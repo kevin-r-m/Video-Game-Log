@@ -216,6 +216,12 @@ input {
     text-align: center;
 }
 
+footer {
+    text-align: center;
+    color: rgb(65, 62, 62);
+    font-size: 12px;
+}
+
 @media (max-width: 800px) {
     .gameInfo {
         display: flex;
