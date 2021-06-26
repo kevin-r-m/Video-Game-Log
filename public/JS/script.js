@@ -1,6 +1,3 @@
-console.log('this is connected')
-
-
 //Search Function
 const searchGames = () => {
     let input, filter, div, name, a, txtValue
@@ -19,4 +16,3 @@ const searchGames = () => {
         }
     }
 }
-
