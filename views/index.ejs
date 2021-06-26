@@ -1,5 +1,7 @@
 
-<a href="/games" class = 'button'>Go Back</a>
+<div id ='bump'>
+    <a href="/games" class = 'button' id = 'bump'>Go Back</a>
+</div>
 
 <h1 class = 'title'><%= game.title %></h1>
 
@@ -18,13 +20,13 @@
 </div>
 
 <h2 class="title">Reviews</h2>
-
+<h3 class = 'reviewsAverage'>Average review score: <span class = 'userAverage'></span></h3>
 <div class = 'reviews'>
     <ul class = 'reviewList'>
         <% for (let i = 0; i < game.reviews.length; i++){ %>
             <li class = 'review'>
                 <div class = 'rTitle'><%= game.reviews[i].title %></div>
-                <div class = 'rScore'> Score: <%= game.reviews[i].score%></div>
+                <div class = 'rScore'> Score: <span class = 'score'><%= game.reviews[i].score%></span></div>
                 <div class = 'rBody'><%= game.reviews[i].body%></div>
                 <div class = 'reviewer dim'> Reviewed by: <%= game.reviews[i].reviewer %> </div>
             </li>
