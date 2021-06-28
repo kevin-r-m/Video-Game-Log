@@ -42,7 +42,7 @@ body {
 }
 
 .moreBtn {
-    background-color: rgb(172, 174, 177);
+    background-color: rgb(202, 205, 209);
     width: fit-content;
     margin: 0 auto;
     padding: 5px;
@@ -247,6 +247,7 @@ footer {
 textarea {
     display: block;
     margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
     
 }
 
