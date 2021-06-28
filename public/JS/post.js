@@ -30,8 +30,10 @@ const countGames = () => {
     var games = document.querySelectorAll('.gamePrev')
         games.forEach((game) =>{
             if(game.style.display === 'none'){
-            }else{shownGames += 1}
-            updateNum()
+            }else{
+                shownGames += 1
+                updateNum()
+            }
         })
     }
 
@@ -40,15 +42,16 @@ const countGames = () => {
 //Adding in Delete Modal
 const modal = document.getElementById("myModal");
 var btn = document.getElementById("removeBtn");
-var span = document.getElementById("close");
+var close = document.getElementById("close");
 
 if(btn){
     btn.onclick = function() {
     modal.style.display = "block";
+    creation()
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    close.onclick = function() {
     modal.style.display = "none";
     }
 
@@ -58,4 +61,27 @@ if(btn){
             modal.style.display = "none";
         }
     }
+}
+
+///////////////////////////////////////////////////////
+
+//Deletion Confirmation Logic
+const creation = () => {
+    console.log('hit')
+    var conf = document.querySelector('.removeConf')
+    var confModal = document.querySelector('#confModal')
+    console.log(conf)
+
+        conf.onclick = function() {
+            confModal.style.display = 'block'
+        }
+
+        close.onclick = function() {
+            modal.style.display = "none";
+            }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
 }
