@@ -26,7 +26,6 @@ router.get('/new', (req, res) =>{
 
 //Create game route
 router.post('/', (req, res) =>{
-    console.log(req.body);
     Game.create(req.body)
         .then(game => {
             res.redirect('/games')
@@ -51,6 +50,20 @@ router.post('/:id', (req, res) => {
         .then(res.redirect(`/games/${req.params.id}`))
 })
 
+//Review Edit Route
+router.get('/edit/review/:id', (req, res) => {
+    Review.findById(req.params.id)
+    .then(review =>{
+        res.render('rEdit', {review})
+    })
+})
+
+//Review Update Route
+router.put('/edit/review/:id', (req, res) =>{
+    Review.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        .then(review => res.redirect('/games'))
+})
+
 //Game Edit Route
 router.get('/edit/:id', (req, res) =>{
     Game.findById(req.params.id)
@@ -62,7 +75,6 @@ router.get('/edit/:id', (req, res) =>{
 
 //Game Update Route
 router.put('/edit/:id', (req, res) => {
-    console.log(req.body)
     Game.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
     .populate('reviews')
         .then(game => res.render('index', {game:game}))
@@ -81,7 +93,6 @@ router.get('/:id', (req, res) =>{
 //delete game and reviews
 router.delete('/:id', (req, res) =>{
     const routeID = req.params.id
-    console.log('hit the log')
     Review.remove({game: routeID})
     Game.findByIdAndDelete(routeID)
         .then(res.redirect('/games'))
