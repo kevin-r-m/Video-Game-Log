@@ -85,3 +85,16 @@ const creation = () => {
             }
         }
 }
+
+///////////////////////////////////////////////////////
+const adjustArea = (element) => {
+    if(window.innerWidth < 600){
+        textArea.cols = '50'
+    }
+}
+
+const textArea = document.querySelector('textarea')
+
+if(textArea){
+    adjustArea(textArea)
+}
