@@ -41,6 +41,21 @@ body {
     border: 2px solid #57b386;
 }
 
+.moreBtn {
+    background-color: rgb(172, 174, 177);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid rgb(133, 133, 134);
+}
+
+.moreBtn:hover {
+    background-color: rgb(133, 133, 134);
+    border: 2px solid rgb(94, 94, 94);
+}
+
 .warnBtn {
     text-decoration: none;
     background-color: #e79292;
@@ -97,6 +112,12 @@ body {
     justify-self: center;
 }
 
+#editReview {
+    display: block;
+    width: fit-content;
+    font-size: 14px;
+}
+
 #removeBtn {
     display: grid;
     grid-column: 3;
@@ -138,6 +159,7 @@ body {
     align-items: center;
     justify-content: center;
     justify-self: center;
+    max-width: 500px;
 }
 
 .dim {
@@ -164,6 +186,7 @@ input {
     text-align: center;
     width: 50%;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 #imgHome {
@@ -206,10 +229,9 @@ input {
     background-color: rgba(0,0,0,0.4);
   }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 22% auto;
     padding: 20px;
     border: 2px solid black;
     width: 50%;
@@ -220,6 +242,10 @@ footer {
     text-align: center;
     color: rgb(65, 62, 62);
     font-size: 12px;
+}
+
+#listNum {
+    
 }
 
 @media (max-width: 800px) {
