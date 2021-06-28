@@ -11,9 +11,6 @@
 
 <div class = 'gameInfo'>
     <button id='removeBtn' class = 'warnBtn'>Remove</button>
-    <!-- <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
-        <input type="submit" value="Remove" id="removeBtn" class = 'warnBtn'>
-      </form> -->
     <a href="/games/edit/<%=game._id %>" class = 'button' id="editGame">Edit Game</a>
     <a href="/games/<%=game._id %>/review" class = 'button' id="reviewGame">Leave a new review</a>
     <img src="<%= game.img%>" alt="<%= game.title %>" id="gameImg">
@@ -21,7 +18,7 @@
 </div>
 
 <h2 class="title">Reviews</h2>
-<h3 class = 'reviewsAverage'>Average review score: <span class = 'userAverage'></span></h3>
+<h3 class = 'reviewsAverage'>Average review score: <span class = 'userAverage'>None</span></h3>
 <div class = 'reviews'>
     <ul class = 'reviewList'>
         <% for (let i = 0; i < game.reviews.length; i++){ %>
@@ -29,7 +26,9 @@
                 <div class = 'rTitle'><%= game.reviews[i].title %></div>
                 <div class = 'rScore'> Score: <span class = 'score'><%= game.reviews[i].score%></span></div>
                 <div class = 'rBody'><%= game.reviews[i].body%></div>
+                <a href="/games/edit/review/<%= game.reviews[i]._id%>" class = 'button' id="editReview">Edit Review</a>
                 <div class = 'reviewer dim'> Reviewed by: <%= game.reviews[i].reviewer %> </div>
+                
             </li>
         <% }  %>
     </ul>
@@ -41,8 +40,9 @@
         <p>Are you sure you want remove <%= game.title %>? This action cannot be undone.</p>
         <button class="button" id="close">No, I am not sure</button>
         <form action="/games/<%= game._id %>?_method=DELETE" method="POST" id ='removeBtn'>
-            <input type="submit" value="Yes, I am sure" id="removeBtn" class = 'warnBtn'>
+            <input type="submit" value="Yes, I am sure" id="removeBtn" class = 'warnBtn  removeConf'>
           </form>
     </div>
   
   </div>
+

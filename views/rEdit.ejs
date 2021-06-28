@@ -1,0 +1,15 @@
+<h1>Please update the fields below for your review</h1>
+
+<form action="/games/edit/review/<%=review._id%>/?_method=put" method='POST'>
+    <label for="title">Title:</label>
+    <input type="text" name='title' required value = '<%=review.title %>'>
+
+    <label for="body">Leave your review here:</label>
+    <input type="text" name="body" required value = '<%=review.body %>'>
+
+    <label for="score">What do you give this game out of 5?</label>
+    <input type="number" name="score" min='0' max = '5' required value = '<%=review.score %>'>
+
+    <input type="submit">
+    <a href="/games%>" class = 'button'>Cancel</a>
+</form>
