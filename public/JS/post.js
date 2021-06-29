@@ -10,7 +10,6 @@ if (scores.length > 0){
     }
     //Average score
     const scoreAverage = (total/scores.length).toFixed(1)
-    console.log(`This is average: ${scoreAverage}`)
     
     //Displaying Average to DOM
     userAverage.innerHTML = scoreAverage
@@ -21,12 +20,14 @@ if (scores.length > 0){
 //Count number of games in DOM
 const games = document.querySelectorAll('.gamePrev')
 const gameNum = document.querySelector('.gameNum')
+var gamesArr = Array.prototype.slice.call(games);
 
 var gameCount = 0
 
 const countGames = () => {
     var shownGames = 0
     const updateNum = () =>{gameNum.innerHTML = shownGames}
+    const isHidden = (value) => value.style.display === 'none';
     var games = document.querySelectorAll('.gamePrev')
         games.forEach((game) =>{
             if(game.style.display === 'none'){
@@ -34,6 +35,10 @@ const countGames = () => {
                 shownGames += 1
                 updateNum()
             }
+            if(gamesArr.every(isHidden)){
+                gameNum.innerHTML = 0
+            }
+
         })
     }
 
@@ -50,12 +55,10 @@ if(btn){
     creation()
     }
 
-    // When the user clicks on <span> (x), close the modal
     close.onclick = function() {
     modal.style.display = "none";
     }
 
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -65,12 +68,10 @@ if(btn){
 
 ///////////////////////////////////////////////////////
 
-//Deletion Confirmation Logic
+//Deletion Confirmation Logic - Pending
 const creation = () => {
-    console.log('hit')
     var conf = document.querySelector('.removeConf')
     var confModal = document.querySelector('#confModal')
-    console.log(conf)
 
         conf.onclick = function() {
             confModal.style.display = 'block'
@@ -87,6 +88,8 @@ const creation = () => {
 }
 
 ///////////////////////////////////////////////////////
+
+//Measuring window size to adjust textarea elements
 const adjustArea = (element) => {
     if(window.innerWidth < 600){
         textArea.cols = '50'

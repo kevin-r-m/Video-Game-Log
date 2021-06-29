@@ -8,7 +8,7 @@ const searchGames = () => {
 
     for (i = 0; i < name.length; i++){
         a = name[i]
-        txtValue = a.textContent || a.innerText;
+        txtValue = a.innerText;
         if(txtValue.toUpperCase().indexOf(filter) > -1){
             div[i].style.display = ""
         }else{
