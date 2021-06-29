@@ -51,7 +51,7 @@ Link to heroku deployment: [Video Game Log](https://vglog.herokuapp.com/games)
 
 ------------
 
-####Learnings
+#### Learnings
 I learned a lot while working on through this project. Not only about the langauges and frameworks themselves but also how they interact with one another. For example, how your JavaScript needs to wait until after data from `get` requests have been gathered before manipulating it. I also learned about how important order is on your backend files. For example, the order of your routes can lead to a bug that cause routes to intertwine. 
 
 Ultimately, I really enjoyed this project and I look forward to improving it.
