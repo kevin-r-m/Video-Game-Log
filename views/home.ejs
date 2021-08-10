@@ -1,7 +1,10 @@
 <h1 class="title">Video Game Log</h1>
+
 <a href="/games/new" class = 'button' id = 'newGame'>Add a new game</a>
 <input type="text" id="myInput" onkeyup="searchGames()" onkeydown="countGames()" placeholder="Search for games..">
+
 <h3 id = 'listNum'> Number of games: <span class = 'gameNum'><%= games.length %></span> </h3>
+
 <div class = 'gameContainer'>
     <% games.forEach(game => { %>
         <div class = 'gamePrev'>

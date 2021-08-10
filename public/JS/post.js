@@ -90,7 +90,7 @@ const creation = () => {
 ///////////////////////////////////////////////////////
 
 //Measuring window size to adjust textarea elements
-const adjustArea = (element) => {
+const adjustArea = () => {
     if(window.innerWidth < 600){
         textArea.cols = '50'
     }

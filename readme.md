@@ -4,6 +4,10 @@ Video Game Log is an application that allows users to search through a list of  
 
 Link to heroku deployment: [Video Game Log](https://vglog.herokuapp.com/games)
 
+# Currently Working On
+ - Reconfiguring File Structure
+ - Converting front-end to React Framework
+
  # Visuals
 
 ### Main View
