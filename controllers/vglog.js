@@ -10,13 +10,10 @@ router.use(ejsLayouts)
 
 //ROUTES
 
-//Show Route
-router.get('/', (req, res) =>{
+router.get('/', (req, res) => {
     Game.find({})
-    .populate('reviews')
-        .then( games => {
-            res.render('home',  {games})
-        })
+        .populate('reviews')
+        .then(games => res.json(games))
 })
 
 //New Route
@@ -85,9 +82,7 @@ router.put('/edit/:id', (req, res) => {
 router.get('/:id', (req, res) =>{
     Game.findById(req.params.id)
     .populate('reviews')
-    .then(game => {
-        res.render('index', {game})
-        })
+    .then(game => res.json(game))
 })
 
 //delete game and reviews
