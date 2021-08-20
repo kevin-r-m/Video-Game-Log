@@ -15,7 +15,8 @@ const GameSchema = mongoose.Schema (
                 ref: 'review'
             }
         ],
-        img: String
+        img: String,
+        likes: Number
     }, 
     {timestamps: true}
 )
