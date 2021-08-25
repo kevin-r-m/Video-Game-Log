@@ -16,11 +16,6 @@ router.get('/', (req, res) => {
         .then(games => res.json(games))
 })
 
-//New Route
-router.get('/new', (req, res) =>{
-    res.render('new')
-})
-
 //Create game route
 router.post('/', (req, res) =>{
     Game.create(req.body)
